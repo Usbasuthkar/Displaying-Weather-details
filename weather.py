@@ -14,15 +14,9 @@ if(lat_long is not None):
     m = lat_long.get_text().split(",")#split as we need lat and long in two seperate variables
     la = m[0]#holds lat with direction
     lo = m[1]#hold long with direction
-    long = ""
-    lat = ""
-    for i in lo:
-        if(i.isnumeric() or i == '.'):
-            long += i
-    # to just have numbers, therefore removing direction
-    for i in la:
-        if(i.isnumeric() or i =='.'):
-            lat += i
+    long = lo
+    lat = la
+    
     # to just have numbers, therefore removing direction
     url = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat +"&lon="+ long +"&appid=281025482b8af38fa55d16b57772e588"
     new_response = r.get(url)#request for weather api data
@@ -41,7 +35,6 @@ if(lat_long is not None):
         if  desc == "rain":
             #selecting particular key to show up
             for sub,value in info.items():
-                print("HEYYYYYYYYYYYYYYY")
                 #iterating through key and values
                 print(sub + ":" + str(value))
         if desc == 'main':

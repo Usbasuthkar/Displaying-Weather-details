@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Weather App</title>
+	<link rel="stylesheet" href = "{{url_for('static',filename = 'css/style.css')}}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="b" id="bb">
+	<form action = "http://localhost:5000/" method ="POST">
+		<input type="search" name = "searchh" class="search_s" placeholder = "Enter Any Place">
+		<button class = "butt"><i class="fa fa-search"></button>
+	</form>
+		<div class="card" id="ca">
+			<div class = "box1">
+				<div class="temp">{{temperature}}&deg;C</div>
+				<div class = "place" autocorrect = "ON">{{place}},{{r}}</div>
+				<div class="min_temp">{{min}}&darr;&nbsp;</div><div class="max_temp" style="left:9%">{{max}}&uarr;</div>
+				<div class = "desc" id = "descc" style="top:82%">{{description}}</div>
+			</div>
+			<div class="line"></div>
+			<div class = "box2">
+				<div class="name">Feels Like: <div class ="feels_like">{{feel_like}}&deg;C</div></div>
+				<div class="name" style="top:31%; right:39%; ">Pressure: <div class ="pressure">{{press}}&nbsp;hPa</div></div>
+				<div class="name" style="top:42%; right:38%; ">Humidity: <div class ="pressure">{{hum}}&nbsp;%</div></div>
+				<div class="name" style="top:52%; right:35.5%; ">Wind Speed: <div class ="pressure">{{ws}}&nbsp;m/s</div></div>
+				<div class="name" style="top:61%; right:39.5%; ">Sunrise: <div class ="pressure">{{sunrise}}&nbsp;UTC</div></div>
+				<div class="name" style="top:69%; right:40.5%; ">Sunset: <div class ="pressure">{{sunset}}&nbsp;UTC</div></div>
+			</div>
+			<script>
+				if("{{description}}" == "Overcast clouds"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/overcast.gif)";
+				}
+				else if("{{description}}" == "Clear sky"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/clearsky.gif)";
+				}
+				else if("{{description}}" == "Broken clouds"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/clearsky.gif)";
+				}
+				else if("{{description}}" == "Scattered clouds"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/clearsky.gif)";
+				}
+				else if("{{description}}" == "Light rain"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/rain.gif)";
+				}
+				else if("{{description}}" == "Few clouds"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/clearsky.gif)";	
+				}
+				else if("{{description}}" == "Snow"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/snow.gif)";	
+				}
+				else if("{{description}}" == "Heavy intensity rain"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/rain.gif)";
+				}
+				else if("{{description}}" == "Moderate rain"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/rain.gif)";
+				}
+				else if("{{description}}" == "Haze" || "{{description}}" == "Mist"){
+					document.getElementById("bb").style.backgroundImage = "url(static/css/haze.gif)";
+				}
+			</script>
+		</div>
+</body>
+</html>
