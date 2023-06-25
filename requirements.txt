@@ -1,5 +1,7 @@
 flask
 datetime
 requests
+datetime
+json
 bs4
 gunicorn
