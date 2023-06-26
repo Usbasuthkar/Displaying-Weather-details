@@ -3,4 +3,4 @@ services:
   - name: flask-app
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python your_app_file.py
+    startCommand: python app.py
