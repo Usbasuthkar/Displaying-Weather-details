@@ -94,4 +94,4 @@ def home():
         sunset = "--"
     return render_template("index.html",place = search,description=description,temperature=main_temp,feel_like = feel_like,max=max,min=min,press=press,hum=hum,ws=ws,r=r,sunrise=sunrise,sunset=sunset)
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
